@@ -1,0 +1,5 @@
+/packages
+/.nuget
+/UGSK.K3.Service.v11.suo
+bin
+obj
