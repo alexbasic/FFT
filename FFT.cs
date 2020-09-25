@@ -7,9 +7,14 @@ using System.Numerics;
 
 namespace FFT
 {
+    /// <summary>
+    /// Implementation of fast fourier transform
+    /// </summary>
     public class FFT
     {
-
+        /// <summary>
+        /// Converts signal to frequencies sequence
+        /// </summary>
         public static Complex[] CalcForward(int[] input)
         {
             int N = input.Length;
@@ -29,6 +34,9 @@ namespace FFT
             return complexResult;
         }
 
+        /// <summary>
+        /// Converts frequencies sequence to signal
+        /// </summary>
         public static Complex[] CalcBackward(Complex[] input)
         {
             int N = input.Length;

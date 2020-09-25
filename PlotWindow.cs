@@ -8,8 +8,13 @@ using System.Windows.Forms;
 
 namespace FFT
 {
+    /// <summary>
+    /// Window class for displaying charts and signals
+    /// </summary>
     public class PlotWindow
     {
+        private Task _task;
+
         public Form form { get; set; }
 
         public int[] SignalBuffer { get; set; }
@@ -46,12 +51,12 @@ namespace FFT
                 form.Show();
                 Application.Run(form);
             };
-            Task task = Task.Factory.StartNew(action, name);
+            _task = Task.Factory.StartNew(action, name);
         }
 
         private void OnResize(object sender, EventArgs e)
         {
-            ((Form)sender).Refresh();
+            (sender as Form)?.Refresh();
         }
 
         private void OnPaint(object sender, PaintEventArgs e)
@@ -62,14 +67,14 @@ namespace FFT
             if (SignalBuffer != null)
             {
                 int deltaHeight = e.ClipRectangle.Height / 2;
-                e.Graphics.DrawLine(System.Drawing.Pens.Red,
+                e.Graphics.DrawLine(Pens.Red,
                         0, deltaHeight,
                         e.ClipRectangle.Width, deltaHeight);
                 for (var i = 0; i < SignalBuffer.Length - 1; i++)
                 {
                     if (DrawLine && (i % 10) == 0)
                     {
-                        e.Graphics.DrawLine(System.Drawing.Pens.Red,
+                        e.Graphics.DrawLine(Pens.Red,
                         i, deltaHeight,
                         i, deltaHeight+5);
                     }
@@ -80,7 +85,7 @@ namespace FFT
                         y0 = e.ClipRectangle.Height - y0;
                         y1 = e.ClipRectangle.Height - y1;
                     }
-                    e.Graphics.DrawLine(System.Drawing.Pens.Black, 
+                    e.Graphics.DrawLine(Pens.Black, 
                         i, y0,
                         i + 1, y1);
                 }

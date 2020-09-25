@@ -1,14 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFT
 {
-    public static class Helper
+    /// <summary>
+    /// For converting any values
+    /// </summary>
+    public static class Converter
     {
+        /// <summary>
+        /// Converts Complex array to int array
+        /// </summary>
         public static int[] ComplexToInt(Complex[] input, double multipler = 1, bool abs = false)
         {
             int N = input.Length;
@@ -30,6 +32,9 @@ namespace FFT
             return result;
         }
 
+        /// <summary>
+        /// Converts Double array to int array
+        /// </summary>
         public static int[] DoubleToInt(double[] input, double multipler=1, bool abs = false)
         {
             int N = input.Length;

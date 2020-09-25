@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="FFT.cs" />
     <Compile Include="Generator.cs" />
-    <Compile Include="Helper.cs" />
+    <Compile Include="Converter.cs" />
     <Compile Include="PlotWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

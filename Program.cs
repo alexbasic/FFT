@@ -21,8 +21,8 @@ namespace FFT
             //signal = GetMeandr(period);
             Complex[] output = FFT.CalcForward(signal);
             var pl = new PlotWindow("signal", signal);
-            var p2 = new PlotWindow("FFT", Helper.ComplexToInt(output, 0.03, true));
-            var p3 = new PlotWindow("sin", Helper.ComplexToInt(FFT.CalcBackward(output)));
+            var p2 = new PlotWindow("FFT", Converter.ComplexToInt(output, 0.03, true));
+            var p3 = new PlotWindow("sin", Converter.ComplexToInt(FFT.CalcBackward(output)));
             Console.WriteLine("Waiting for exit...");
             Console.ReadKey();
         }
